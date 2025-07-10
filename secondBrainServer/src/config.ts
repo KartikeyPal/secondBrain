@@ -1,0 +1,1 @@
+export const jwt_secreat = "q234aefq341tasf"
