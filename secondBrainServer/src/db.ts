@@ -26,11 +26,11 @@ const UserSchema = new Schema({
 })
 
 const ContentSchema  = new Schema({
-    link: {
-        type:String,
-        required:true
-    },
-    type: {
+        link: {
+            type:String,
+            required:true
+        },
+        type: {
         type: String,
         enum: ["twitter", "youtube", "document", "link"],
         required: true
@@ -69,10 +69,9 @@ const LinkSchema  = new Schema({
     userId: {
         type:Schema.Types.ObjectId,
         ref: "User",
-        required: true
+        required: true,
+        unique: true
     }
-}, {
-    timestamps: true
 })
 // Exporting all Schema
 export const User = model("User",UserSchema);

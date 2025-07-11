@@ -17,7 +17,6 @@ export  function authRoute(req:Request,res:Response,next:NextFunction){
         return;
     }
     const decode:any = jwt.verify(token,jwt_secreat);
-
     req.userId = decode.userId;
     next();
 }
