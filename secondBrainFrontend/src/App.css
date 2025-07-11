@@ -2,7 +2,10 @@
 @import "tailwindcss";
 @theme {
   --color-mint-500:   oklch(92.96 0.032 272.27);
-  --color-purple-300: oklch(92.96% 0.032 272.27);
-  --color-purple-500: oklch(42.02% 0.172 278.42);
-  --color-purple-600: oklch(51.03% 0.229 277.36);
+  --color-purple-200: oklch(0.8996 0.0236 275.34);
+  --color-purple-500: oklch(0.6904 0.1064 284.5);
+  --color-purple-600: oklch(0.5589 0.1387 287.52);
+  --color-gray-100:   oklch(0.9494 0.0013 286.37);
+  --color-gray-200:   oklch(0.9329 0.0063 255.48);
+  --color-gray-600:   oklch(0.6785 0.0068 255.49);
 }
