@@ -11,7 +11,7 @@ const btnSize = {
     "lg": "py-4 px-8"
 }
 
-const defaultStyle = "rounded-md font-normal flex justify-center hover:cursor-pointer "
+const defaultStyle = "rounded-md font-normal flex justify-center hover:cursor-pointer hover:scale-95 duration-200 ease-in"
 
 type Varient = "Primary" | "Secondary";
 type Size = "sm" | "md" | "lg";

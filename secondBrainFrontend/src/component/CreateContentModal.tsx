@@ -2,7 +2,7 @@ import { CloseIcon } from "../icons/CloseIcon";
 import { Button } from "./Button";
 
 
-export function AddContentModal({open,onClose}: { open:Boolean,onClose: ()=>void}){
+export default function AddContentModal({open,onClose}: { open:Boolean,onClose: ()=>void}){
 
 
     const inputCSS = "p-3  outline-slate-400 font-semibold border border-slate-300 "
