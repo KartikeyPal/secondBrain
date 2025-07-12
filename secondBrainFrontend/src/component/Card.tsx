@@ -21,7 +21,7 @@ const Card = ({title,link,type}: CardProps)=>{
     }
     return( 
         <div>
-            <div className="bg-white rounded-md  border max-w-72 min-w-72 max-h-96 border-slate-200 ml-16 mt-8 overflow-y-scroll overflow-x-hidden">
+            <div className="bg-white rounded-md  border max-w-72 min-w-72 max-h-96 min-h-96 border-slate-200 ml-16 mt-8 overflow-y-scroll overflow-x-hidden">
                 {/* Upper Section */}
                 <div className="flex justify-between">
                     <div className="flex items-center text-md"> 

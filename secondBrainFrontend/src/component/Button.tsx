@@ -11,7 +11,7 @@ const btnSize = {
     "lg": "py-4 px-8"
 }
 
-const defaultStyle = "rounded-md font-normal flex justify-center "
+const defaultStyle = "rounded-md font-normal flex justify-center hover:cursor-pointer "
 
 type Varient = "Primary" | "Secondary";
 type Size = "sm" | "md" | "lg";
@@ -22,16 +22,17 @@ interface ButtonProps{
     text: string,
     startIcon?: ReactElement,
     endIcon?: ReactElement,
-    onClick: ()=>void
+    onClick?: ()=>void
 
 }
 
 
-export const Button = ({varient,size,text,startIcon,endIcon}:ButtonProps) => {
+export const Button = ({varient,size,text,startIcon,endIcon,onClick}:ButtonProps) => {
   return <button 
             className={varientStyles[varient]  + " " +
             defaultStyle + " " +
             btnSize[size] + "" } 
+            onClick={onClick}
         > 
         <div className="pr-1 items-center justify-center">
             {startIcon}
