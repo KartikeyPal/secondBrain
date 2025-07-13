@@ -6,7 +6,7 @@ import Card from './component/Card'
 import { PlusIcon } from './icons/PlusIcon'
 import { ShareIcon } from './icons/ShareIcon'
 import AddContentModal from './component/CreateContentModal'
-import Sidebar from './component/Sidebar'
+import Sidebar from './component/sidebar/Sidebar'
 function App() {
   const [modalOpen,setModalOpen] = useState(false)
 
