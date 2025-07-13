@@ -18,7 +18,7 @@ const SidebarButton = (props: sideBarButtonProps) => {
   return (
     <div className={buttonStyle.button}>
         {props.icon}
-        <h2>Tags</h2>
+        <h2>{props.text}</h2>
     </div>
   )
 }
