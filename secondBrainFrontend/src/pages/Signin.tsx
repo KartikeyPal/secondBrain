@@ -6,8 +6,6 @@ import { Button } from '../component/Button';
 const Signin = () => {
     const [Username,setUsername] = useState("");
     const [password,setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [showPassword,setShowPassword] = useState(false);
   return (
     <div className='flex w-screen h-screen items-center'>

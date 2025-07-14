@@ -41,8 +41,7 @@ const Signup = () => {
                     passwordToggleButton={true}
                />  
                <div className='pt-4'>
-
-              <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{}} />  
+                  <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{}} />  
                </div>
             </div>
           </div>

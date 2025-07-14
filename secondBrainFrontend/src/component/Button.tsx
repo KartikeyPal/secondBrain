@@ -23,15 +23,16 @@ interface ButtonProps{
     startIcon?: ReactElement,
     endIcon?: ReactElement,
     onClick?: ()=>void
+    customCss?: string
 
 }
 
 
-export const Button = ({varient,size,text,startIcon,endIcon,onClick}:ButtonProps) => {
+export const Button = ({varient,size,text,startIcon,endIcon,onClick,customCss}:ButtonProps) => {
   return <button 
             className={varientStyles[varient]  + " " +
             defaultStyle + " " +
-            btnSize[size] + "" } 
+            btnSize[size] + " " + customCss } 
             onClick={onClick}
         > 
         <div className="pr-1 items-center justify-center">
