@@ -1,8 +1,8 @@
 import type { ReactElement } from "react"
 
 const varientStyles = {
-    "Primary": "bg-purple-600 text-white",
-    "Secondary": "bg-purple-300 text-purple-600"
+    "Primary": "bg-purple-600 text-white hover:not-focus:bg-purple-400",
+    "Secondary": "bg-purple-300 text-purple-600 hover:not-focus:bg-purple-200"
 }   
 
 const btnSize = {
