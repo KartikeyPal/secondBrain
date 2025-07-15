@@ -9,7 +9,7 @@ declare global {
     }
   }
 export  function authRoute(req:Request,res:Response,next:NextFunction){
-    const token = req.body.token;
+    const token = req.headers.authorization;
     if(!token){
         res.status(403).json({
             message: "Please login"

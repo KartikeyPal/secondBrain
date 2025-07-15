@@ -3,12 +3,29 @@ import { useState } from 'react'
 import img from '../../images/Off White Gold Modern Minimal Floral Zoom Virtual Background (1).png'
 import Input from '../component/Input'
 import { Button } from '../component/Button';
+import {backendUrl} from '../../config.tsx'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Signup = () => {
     const [Username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [showPassword,setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const signup =async ()=>{
+      await axios.post(`${backendUrl}/api/v1/signup`,{
+        
+          userName: Username,
+          password,
+          confirmPassword,
+        
+      })
+      alert("signup Successfully");
+      navigate('/signin');
+    }
+
+
   return (
     <div className='flex w-screen h-screen items-center'>
         <div className='flex flex-col  items-center justify-center absolute'>
@@ -44,7 +61,7 @@ const Signup = () => {
                     required={true}
                />  
                <div className='pt-4'>
-                  <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{}} />  
+                  <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{signup()}} />  
                </div>
             </div>
           </div>

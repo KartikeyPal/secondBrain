@@ -5,7 +5,7 @@ import {User,Tag,Content,Link,connectDb} from './db'
 import { jwt_secreat } from './config';
 import { authRoute } from './authMiddleware';
 import { random } from './utils';
-
+import cors from 'cors'
 declare global {
   namespace Express {
     interface Request {
@@ -15,8 +15,8 @@ declare global {
 }
 
 
-
 const app = express();
+app.use(cors())
 
 app.use(express.json());
 
@@ -27,10 +27,17 @@ app.get('/',(req,res)=>{
 
 app.post('/api/v1/signup',async (req,res)=>{
    try {
-    const {userName,password} = req.body;
+    console.log(req.body);
+    const {userName,password,confirmPassword} = req.body;
     if(userName.length <3 || password.length <8){
         res.status(411).json({
             message: "error in input",
+        })
+        return;
+    }
+    if(password !== confirmPassword){
+        res.status(403).json({
+            message:"password and confirm Password in not matching",
         })
         return;
     }
@@ -64,7 +71,6 @@ app.post('/api/v1/signin',async (req,res)=>{
         const {userName,password} = req.body;
         console.log(userName,password);
         const user = await User.findOne({userName:userName});
-        console.log(user);
         if(!user){
             res.status(403).json({
                 message: "Wrong username"
@@ -106,7 +112,7 @@ app.post('/api/v1/addContent',authRoute,async (req,res)=>{
             })
             return;
         }
-        const {type,link,title,tags} = req.body;
+        const {link,title,type,tags=false} = req.body;
         if(!title){
             res.status(402).json({
                 message: "Title is required",
@@ -120,8 +126,11 @@ app.post('/api/v1/addContent',authRoute,async (req,res)=>{
               tag =  await Tag.create({tag:tags});
             }
         }
-        const content = {type:type,link,title:title,tags:tag?._id, userId};
+
+        const content = {type,link,title,tags:tag?._id, userId};
+        console.log(content);
         const newContent  = await Content.create(content);
+        console.log(newContent);
 
         res.status(200).json({
             message:"Content is Succesfully created",
@@ -131,7 +140,8 @@ app.post('/api/v1/addContent',authRoute,async (req,res)=>{
 
     } catch (error) {
         res.status(500).json({
-            message:"Internal server error Error in addContentRoute"
+            message:"Internal server error Error in add Content Route",
+            error: error
         })
         return;
     }
@@ -163,9 +173,9 @@ app.get('/api/v1/getContent',authRoute,async (req,res)=>{
         }
 })  
 
-app.delete('/api/v1/deleteContent',authRoute,async (req,res)=>{
+app.delete('/api/v1/deleteContent/:contentId',async (req,res)=>{
     try {   
-            const contentId = req.body.contentId;
+            const contentId = req.params.contentId;
             await Content.findByIdAndDelete(contentId);
             res.status(200).json({
                 message:"content is successfully deleted",
