@@ -60,9 +60,14 @@ const Signup = () => {
                     passwordToggleButton={true}
                     required={true}
                />  
-               <div className='pt-4'>
-                  <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{signup()}} />  
-               </div>
+              <div className='flex gap-x-6'>
+                    <div className='pt-4'>
+                        <Button varient='Primary' size='md' text='Sign Up' onClick={()=>{signup()}} />  
+                    </div> 
+                    <div className='pt-4'>
+                        <Button varient='Secondary' size='md' text='Sign In' onClick={()=>{navigate('/signin')}} />  
+                    </div>
+              </div>
             </div>
           </div>
         </div>
